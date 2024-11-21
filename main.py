@@ -4,6 +4,7 @@ from time import sleep
 
 id = int(input("ID of item: "))
 threshold = int(input("Threshold of price (notify when it goes under this value): "))
+interval = int(input("Refresh interval (seconds): "))
 
 while True:
     body = {"items": [{"itemType": "Asset", "id": id}]}
@@ -21,4 +22,4 @@ while True:
             f"Item {id} found at lowestResalePrice:{details["lowestResalePrice"]}, lowestPrice:{details["lowestPrice"]}",
             duration = 10,
             threaded = True)
-    sleep(10)
+    sleep(interval)
